@@ -9,6 +9,8 @@ import Card from "../components/Card.astro";
 const protoArr: arr[] = [
   { name: "Concerts", description: "My concerts." },
   { name: "Nature", description: "My photos of nature." },
+  { name: "Concerts", description: "My concerts." },
+  { name: "Nature", description: "My photos of nature." },
 ];
 ---
 
@@ -17,7 +19,7 @@ const protoArr: arr[] = [
     <Header />
     {
       protoArr.map((obj) => {
-        <Card />;
+        return <Card name={obj.name} description={obj.description} />;
       })
     }
   </main>
