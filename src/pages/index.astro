@@ -1,7 +1,30 @@
 ---
+interface arr {
+  name: string;
+  description: string;
+}
 import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Card from "../components/Card.astro";
+const protoArr: arr[] = [
+  { name: "Concerts", description: "My concerts." },
+  { name: "Nature", description: "My photos of nature." },
+];
 ---
 
-<Layout title="The Portfolio" />
+<Layout title="The Portfolio">
+  <main>
+    <Header />
+    {
+      protoArr.map((obj) => {
+        <Card />;
+      })
+    }
+  </main>
+</Layout>
 
-<style></style>
+<style>
+  main {
+    position: relative;
+  }
+</style>
