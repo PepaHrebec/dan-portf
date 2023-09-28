@@ -6,6 +6,7 @@ interface arr {
 import Layout from "../layouts/Layout.astro";
 import Header from "../components/Header.astro";
 import Card from "../components/Card.astro";
+import Services from "../components/Services.astro";
 const protoArr: arr[] = [
   { name: "Concerts", description: "My concerts." },
   { name: "Nature", description: "My photos of nature." },
@@ -22,6 +23,7 @@ const protoArr: arr[] = [
         return <Card name={obj.name} description={obj.description} />;
       })
     }
+    <Services />
   </main>
 </Layout>
 
