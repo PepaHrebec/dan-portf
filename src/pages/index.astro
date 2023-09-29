@@ -7,6 +7,7 @@ import Layout from "../layouts/Layout.astro";
 import Header from "../components/Header.astro";
 import Card from "../components/Card.astro";
 import Services from "../components/Services.astro";
+import Footer from "../components/Footer.astro";
 const protoArr: arr[] = [
   { name: "Concerts", description: "My concerts." },
   { name: "Nature", description: "My photos of nature." },
@@ -17,6 +18,9 @@ const protoArr: arr[] = [
 
 <Layout title="The Portfolio">
   <main>
+    <div class="foot-wrap">
+      <img class="foot" src="" alt="" style="width: 100%; object-fit: cover;" />
+    </div>
     <Header />
     {
       protoArr.map((obj) => {
@@ -24,6 +28,7 @@ const protoArr: arr[] = [
       })
     }
     <Services />
+    <Footer />
   </main>
 </Layout>
 
@@ -31,4 +36,28 @@ const protoArr: arr[] = [
   main {
     position: relative;
   }
+  .foot-wrap {
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(100, 100, 100, 0.8);
+    z-index: 2;
+    padding: 5vw;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: none;
+  }
+  .displ {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  img {
+    cursor: pointer;
+  }
 </style>
+
+<script src="../script.ts"></script>

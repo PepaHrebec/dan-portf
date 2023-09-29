@@ -11,12 +11,15 @@ import image from "../img/image.jpg";
 ---
 
 <div class="main-container">
-  <!-- <img src="../img/image.jpg" alt="" /> -->
-  <Image
-    src={image}
-    alt="Pic"
-    style="height: 100%; width: 100%; object-fit: cover;"
-  />
+  <div class="img-container">
+    <div class="img-container-left">
+      <Image src={image} alt="Pic" />
+    </div>
+    <div class="img-container-right">
+      <Image src={image} alt="Pic" />
+      <Image src={image} alt="Pic" />
+    </div>
+  </div>
   <div class="bottom-container">
     <div class="bottom-left">
       <h3 class="heading">{name}</h3>
@@ -30,13 +33,19 @@ import image from "../img/image.jpg";
 <style>
   .main-container {
     width: 100vw;
-    padding: 64px 5vw 0px;
+    padding: 64px 5vw 32px;
     display: flex;
     flex-direction: column;
+  }
+  .img-container-right {
+    display: none;
   }
   img {
     width: 100%;
     padding-bottom: 8px;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
   }
   .bottom-container {
     display: flex;
@@ -61,6 +70,28 @@ import image from "../img/image.jpg";
     & > a {
       font-size: 15px;
       color: black;
+    }
+  }
+  @media screen and (min-width: 992px) {
+    .img-container {
+      display: flex;
+      flex-direction: row;
+      gap: 8px;
+    }
+    .img-container-left {
+      display: flex;
+      flex: 3;
+      & > * {
+        flex: auto;
+      }
+    }
+    .img-container-right {
+      display: flex;
+      flex-direction: column;
+      flex: 2;
+      & > * {
+        flex: auto;
+      }
     }
   }
 </style>
