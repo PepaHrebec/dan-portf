@@ -3,18 +3,34 @@ interface arr {
   name: string;
   description: string;
 }
+// interface Collection {
+//   contentTypeId: "collection";
+//   fields: {
+//     collectionName: EntryFieldTypes.Text;
+//     description: EntryFieldTypes.Text;
+//     photos: EntryFieldTypes.AssetLink[];
+//   };
+// }
 import Layout from "../layouts/Layout.astro";
 import Header from "../components/Header.astro";
 import Card from "../components/Card.astro";
 import Services from "../components/Services.astro";
 import Footer from "../components/Footer.astro";
 import Fullscreen from "../components/Fullscreen.astro";
+
+// import { contentfulClient } from "../lib/contentful";
+// import type { EntryFieldTypes } from "contentful";
+
 const protoArr: arr[] = [
   { name: "Concerts", description: "My concerts." },
   { name: "Nature", description: "My photos of nature." },
   { name: "Concerts", description: "My concerts." },
   { name: "Nature", description: "My photos of nature." },
 ];
+
+// const entries = await contentfulClient.getEntries<Collection>({
+//   content_type: "collection",
+// });
 ---
 
 <Layout title="The Portfolio">
@@ -28,6 +44,11 @@ const protoArr: arr[] = [
     }
     <Services />
     <Footer />
+    <!-- {
+      entries.items.map((entry) => {
+        return <pre>{entry.fields.collectionName}</pre>;
+      })
+    } -->
   </main>
 </Layout>
 

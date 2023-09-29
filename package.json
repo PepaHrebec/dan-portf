@@ -10,10 +10,12 @@
     "astro": "astro"
   },
   "dependencies": {
+    "@contentful/rich-text-html-renderer": "^16.1.2",
     "@fontsource/inter": "^5.0.8",
     "astro": "^3.1.2",
     "astro-seo": "^0.8.0",
     "autoprefixer": "^10.4.16",
+    "contentful": "^10.6.0",
     "cssnano": "^6.0.1",
     "postcss-preset-env": "^9.1.4"
   }
