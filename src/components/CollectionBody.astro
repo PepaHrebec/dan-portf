@@ -3,16 +3,16 @@ import { Image } from "astro:assets";
 import image from "../img/image.jpg";
 ---
 
-<div class="main-grid">
+<div class="container">
   <Image src={image} alt="pic" />
   <Image src={image} alt="pic" />
   <Image src={image} alt="pic" />
 </div>
 
 <style>
-  .main-grid {
-    display: grid;
-    grid-template-columns: 1fr;
+  .container {
+    display: flex;
+    flex-direction: column;
     gap: 24px;
   }
   img {
@@ -23,8 +23,14 @@ import image from "../img/image.jpg";
     object-fit: cover;
   }
   @media screen and (min-width: 992px) {
-    .main-grid {
-      grid-template-columns: 1fr 1fr;
+    img {
+      width: 40%;
+      flex: 1;
+    }
+    .container {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
       gap: 24px;
     }
   }

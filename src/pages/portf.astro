@@ -3,13 +3,16 @@ import Layout from "../layouts/Layout.astro";
 import Header from "../components/Header.astro";
 import CollectionBody from "../components/CollectionBody.astro";
 import Footer from "../components/Footer.astro";
-const arr = [];
+import Fullscreen from "../components/Fullscreen.astro";
 ---
 
 <Layout title="Nature">
   <main>
+    <Fullscreen />
     <Header title="Příroda" />
     <CollectionBody />
     <Footer />
   </main>
 </Layout>
+
+<script src="../script.ts"></script>
