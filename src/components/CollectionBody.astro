@@ -1,0 +1,31 @@
+---
+import { Image } from "astro:assets";
+import image from "../img/image.jpg";
+---
+
+<div class="main-grid">
+  <Image src={image} alt="pic" />
+  <Image src={image} alt="pic" />
+  <Image src={image} alt="pic" />
+</div>
+
+<style>
+  .main-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  img {
+    width: 100%;
+    padding-bottom: 8px;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
+  @media screen and (min-width: 992px) {
+    .main-grid {
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+  }
+</style>

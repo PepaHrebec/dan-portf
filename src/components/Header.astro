@@ -1,9 +1,9 @@
 ---
-
+const { title } = Astro.props;
 ---
 
 <header>
-  <p class="name">Daniel Král</p>
+  <p class="name">{title}</p>
 </header>
 <style>
   header {

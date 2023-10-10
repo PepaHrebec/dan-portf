@@ -1,7 +1,15 @@
+---
+const { services } = Astro.props;
+---
+
 <div class="main-container">
   <h2>Služby</h2>
   <ul>
-    <li>Fotografování</li>
+    {
+      (services as string[]).map((service) => {
+        return <li>{service}</li>;
+      })
+    }
   </ul>
 </div>
 <style>
