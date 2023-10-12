@@ -11,22 +11,24 @@ import image from "../img/image.jpg";
 ---
 
 <div class="main-container">
-  <div class="img-container">
-    <div class="img-container-left">
-      <Image src={image} alt="Pic" />
+  <div class="parts-container">
+    <div class="img-container">
+      <div class="img-container-left">
+        <Image src={image} alt="Pic" />
+      </div>
+      <div class="img-container-right">
+        <Image src={image} alt="Pic" />
+        <Image src={image} alt="Pic" />
+      </div>
     </div>
-    <div class="img-container-right">
-      <Image src={image} alt="Pic" />
-      <Image src={image} alt="Pic" />
-    </div>
-  </div>
-  <div class="bottom-container">
-    <div class="bottom-left">
-      <h3 class="heading">{name}</h3>
-      <p class="description">{description}</p>
-    </div>
-    <div class="bottom-right">
-      <a href="">Objevit</a>
+    <div class="bottom-container">
+      <div class="bottom-left">
+        <h3 class="heading">{name}</h3>
+        <p class="description">{description}</p>
+      </div>
+      <div class="bottom-right">
+        <a href="">Objevit</a>
+      </div>
     </div>
   </div>
 </div>
@@ -34,8 +36,12 @@ import image from "../img/image.jpg";
   .main-container {
     width: 100vw;
     padding: 64px 5vw 32px;
+  }
+  .parts-container {
     display: flex;
     flex-direction: column;
+    max-width: 1124px;
+    margin: 0 auto;
   }
   .img-container-right {
     display: none;
