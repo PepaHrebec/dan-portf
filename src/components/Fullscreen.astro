@@ -1,8 +1,6 @@
 <div class="full-wrap">
-  <div class="img-wrap">
-    <div class="close"></div>
-    <img class="full" src="" alt="" />
-  </div>
+  <div class="close"></div>
+  <img class="full" src="" alt="" />
 </div>
 <style>
   img {
@@ -16,18 +14,12 @@
     height: 100vh;
     background-color: rgba(100, 100, 100, 0.8);
     z-index: 2;
-    padding: 4vh 4vw;
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
     display: none;
-    padding: 10vh 10vw;
-  }
-  .img-wrap {
-    position: relative;
-    max-height: 80vh;
   }
   .displ {
     display: flex;
@@ -38,8 +30,8 @@
   .close {
     position: absolute;
     cursor: pointer;
-    right: 0px;
-    top: -24px;
+    right: 24px;
+    top: 24px;
     width: 24px;
     height: 24px;
     opacity: 0.7;
@@ -63,8 +55,18 @@
     transform: rotate(-45deg);
   }
   @media screen and (min-width: 992px) {
+    .full-wrap {
+      padding: 10vh 10vw;
+    }
     .close {
       opacity: 1;
+      right: 48px;
+      top: 48px;
+    }
+    .close:before,
+    .close:after {
+      height: 40px;
+      width: 4px;
     }
   }
 </style>
