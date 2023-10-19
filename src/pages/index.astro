@@ -22,12 +22,12 @@ import Fullscreen from "../components/Fullscreen.astro";
 import { contentfulClient } from "../lib/contentful";
 import type { EntryFieldTypes } from "contentful";
 
-const protoArr: arr[] = [
-  { name: "Concerts", description: "My concerts." },
-  { name: "Nature", description: "My photos of nature." },
-  { name: "Concerts", description: "My concerts." },
-  { name: "Nature", description: "My photos of nature." },
-];
+// const protoArr: arr[] = [
+//   { name: "Concerts", description: "My concerts." },
+//   { name: "Nature", description: "My photos of nature." },
+//   { name: "Concerts", description: "My concerts." },
+//   { name: "Nature", description: "My photos of nature." },
+// ];
 
 const entries = await contentfulClient.getEntries<Collection>({
   content_type: "collection",

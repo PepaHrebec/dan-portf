@@ -1,13 +1,42 @@
 ---
-export function getStaticPaths() {
-  return [
-    { params: { collection: "clifford" } },
-    { params: { collection: "rover" } },
-    { params: { collection: "spot" } },
-  ];
+interface Collection {
+  contentTypeId: "collection";
+  fields: {
+    collectionName: EntryFieldTypes.Text;
+    description: EntryFieldTypes.Text;
+    photos: EntryFieldTypes.AssetLink[];
+    mainPhotos: EntryFieldTypes.AssetLink[];
+  };
 }
 
-const { collection } = Astro.params;
+import Layout from "../layouts/Layout.astro";
+import Fullscreen from "../components/Fullscreen.astro";
+import Header from "../components/Header.astro";
+import { contentfulClient } from "../lib/contentful";
+import type { EntryFieldTypes } from "contentful";
+
+export async function getStaticPaths() {
+  const entries = await contentfulClient.getEntries<Collection>({
+    content_type: "collection",
+  });
+
+  const pages = entries.items.map((item) => ({
+    params: { collection: item.fields.collectionName },
+    props: {
+      title: item.fields.collectionName,
+      description: item.fields.description,
+      photos: item.fields.photos,
+    },
+  }));
+  return pages;
+}
+
+const { title, description, photos } = Astro.props;
 ---
 
-<div>Good dog, {collection}!</div>
+<Layout title={title}>
+  <main>
+    <Fullscreen />
+    <Header title={title} />
+  </main>
+</Layout>
