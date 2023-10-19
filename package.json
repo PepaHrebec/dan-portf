@@ -17,6 +17,7 @@
     "autoprefixer": "^10.4.16",
     "contentful": "^10.6.0",
     "cssnano": "^6.0.1",
-    "postcss-preset-env": "^9.1.4"
+    "postcss-preset-env": "^9.1.4",
+    "slugify": "^1.6.6"
   }
 }

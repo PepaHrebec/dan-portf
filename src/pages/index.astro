@@ -21,13 +21,7 @@ import Fullscreen from "../components/Fullscreen.astro";
 
 import { contentfulClient } from "../lib/contentful";
 import type { EntryFieldTypes } from "contentful";
-
-// const protoArr: arr[] = [
-//   { name: "Concerts", description: "My concerts." },
-//   { name: "Nature", description: "My photos of nature." },
-//   { name: "Concerts", description: "My concerts." },
-//   { name: "Nature", description: "My photos of nature." },
-// ];
+import slugify from "slugify";
 
 const entries = await contentfulClient.getEntries<Collection>({
   content_type: "collection",
@@ -38,11 +32,6 @@ const entries = await contentfulClient.getEntries<Collection>({
   <main>
     <Fullscreen />
     <Header title="Daniel Král" />
-    <!-- {
-      protoArr.map((obj) => {
-        return <Card name={obj.name} description={obj.description} />;
-      })
-    } -->
     {
       entries.items.map((entry) => {
         return (
@@ -50,6 +39,7 @@ const entries = await contentfulClient.getEntries<Collection>({
             name={entry.fields.collectionName}
             description={entry.fields.description}
             mainPhotos={entry.fields.mainPhotos}
+            link={`/${slugify(entry.fields.collectionName).toLowerCase()}`}
           />
         );
       })

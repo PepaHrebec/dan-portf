@@ -5,7 +5,7 @@
 // 	href: string;
 // }
 
-const { name, description, mainPhotos } = Astro.props;
+const { name, description, mainPhotos, link } = Astro.props;
 import { Image } from "astro:assets";
 import image from "../img/image.jpg";
 ---
@@ -46,7 +46,7 @@ import image from "../img/image.jpg";
         <p class="description">{description}</p>
       </div>
       <div class="bottom-right">
-        <a href="">Objevit</a>
+        <a href={link}>Objevit</a>
       </div>
     </div>
   </div>

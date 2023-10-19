@@ -1,12 +1,5 @@
----
-import { Image } from "astro:assets";
-import image from "../img/image.jpg";
----
-
 <div class="container">
-  <Image src={image} alt="pic" />
-  <Image src={image} alt="pic" />
-  <Image src={image} alt="pic" />
+  <slot />
 </div>
 
 <style>
