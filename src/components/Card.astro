@@ -1,5 +1,5 @@
 ---
-const { name, description, mainPhotos, link } = Astro.props;
+const { name, description, mainPhotos, link, isFirst } = Astro.props;
 import { Image } from "astro:assets";
 ---
 
@@ -12,6 +12,7 @@ import { Image } from "astro:assets";
           alt="Main album photo"
           width={640}
           height={360}
+          loading={isFirst ? "eager" : "lazy"}
         />
       </div>
       <div class="img-container-right">
@@ -21,6 +22,7 @@ import { Image } from "astro:assets";
             alt="Main album photo"
             width={640}
             height={360}
+            loading={isFirst ? "eager" : "lazy"}
           />
         </div>
         <div class="right-wrap">
@@ -29,6 +31,7 @@ import { Image } from "astro:assets";
             alt="Main album photo"
             width={640}
             height={360}
+            loading={isFirst ? "eager" : "lazy"}
           />
         </div>
       </div>

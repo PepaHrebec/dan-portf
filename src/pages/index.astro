@@ -29,13 +29,14 @@ const entries = await contentfulClient.getEntries<Collection>({
     <Fullscreen />
     <Header title="Daniel Král" />
     {
-      entries.items.map((entry) => {
+      entries.items.map((entry, index) => {
         return (
           <Card
             name={entry.fields.collectionName}
             description={entry.fields.description}
             mainPhotos={entry.fields.mainPhotos}
             link={`/${slugify(entry.fields.collectionName).toLowerCase()}`}
+            isFirst={index === 0 ? true : false}
           />
         );
       })
