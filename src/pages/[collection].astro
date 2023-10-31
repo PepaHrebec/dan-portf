@@ -16,6 +16,7 @@ import Header from "../components/Header.astro";
 import { contentfulClient } from "../lib/contentful";
 import type { EntryFieldTypes } from "contentful";
 import CollectionBody from "../components/CollectionBody.astro";
+import { Image } from "astro:assets";
 
 export async function getStaticPaths() {
   const entries = await contentfulClient.getEntries<Collection>({
@@ -23,17 +24,20 @@ export async function getStaticPaths() {
   });
 
   const pages = entries.items.map((item) => ({
-    params: { collection: slugify(item.fields.collectionName).toLowerCase() },
+    params: {
+      collection: slugify(item.fields.collectionName, {
+        lower: true,
+      }),
+    },
     props: {
       title: item.fields.collectionName,
-      description: item.fields.description,
-      photos: item.fields.photos,
+      photos: item.fields.photos as EntryFieldTypes.AssetLink[],
     },
   }));
   return pages;
 }
 
-const { title, description, photos } = Astro.props;
+const { title, photos } = Astro.props;
 ---
 
 <Layout title={title}>
@@ -44,8 +48,16 @@ const { title, description, photos } = Astro.props;
       {
         photos
           .filter((obj: any) => "fields" in obj)
-          .map((filtered: any) => {
-            return <img src={`https:${filtered.fields.file.url}`} />;
+          .map((filtered: any, index: number) => {
+            return (
+              <Image
+                src={`https:${filtered.fields.file.url}`}
+                alt="An album photo"
+                width="1920"
+                height="1080"
+                loading={index === 0 ? "eager" : "lazy"}
+              />
+            );
           })
       }
     </CollectionBody>

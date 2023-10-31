@@ -1,13 +1,6 @@
 ---
-// interface Props {
-// 	title: string;
-// 	body: string;
-// 	href: string;
-// }
-
 const { name, description, mainPhotos, link } = Astro.props;
 import { Image } from "astro:assets";
-import image from "../img/image.jpg";
 ---
 
 <div class="main-container">
@@ -16,7 +9,7 @@ import image from "../img/image.jpg";
       <div class="img-container-left">
         <Image
           src={mainPhotos[0].fields.file.url}
-          alt="Pic"
+          alt="Main album photo"
           width={640}
           height={360}
         />
@@ -25,7 +18,7 @@ import image from "../img/image.jpg";
         <div class="right-wrap">
           <Image
             src={mainPhotos[1].fields.file.url}
-            alt="Pic"
+            alt="Main album photo"
             width={640}
             height={360}
           />
@@ -33,7 +26,7 @@ import image from "../img/image.jpg";
         <div class="right-wrap">
           <Image
             src={mainPhotos[2].fields.file.url}
-            alt="Pic"
+            alt="Main album photo"
             width={640}
             height={360}
           />
