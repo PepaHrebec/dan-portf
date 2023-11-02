@@ -35,7 +35,9 @@ const entries = await contentfulClient.getEntries<Collection>({
             name={entry.fields.collectionName}
             description={entry.fields.description}
             mainPhotos={entry.fields.mainPhotos}
-            link={`/${slugify(entry.fields.collectionName).toLowerCase()}`}
+            link={`/${slugify(entry.fields.collectionName, {
+              lower: true,
+            })}`}
             isFirst={index === 0 ? true : false}
           />
         );
