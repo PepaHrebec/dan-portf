@@ -31,8 +31,8 @@
   .close {
     position: absolute;
     cursor: pointer;
-    right: 24px;
-    top: 24px;
+    right: 28px;
+    top: 22px;
     width: 24px;
     height: 24px;
     opacity: 0.7;
@@ -45,8 +45,8 @@
     position: absolute;
     left: 15px;
     content: " ";
-    height: 24px;
-    width: 2px;
+    height: 40px;
+    width: 4px;
     background-color: white;
   }
   .close:before {
@@ -57,17 +57,20 @@
   }
   @media screen and (min-width: 992px) {
     .full-wrap {
-      padding: 10vh 10vw;
+      padding: 0 5vw;
     }
     .close {
-      opacity: 1;
-      right: 48px;
-      top: 48px;
+      opacity: 0.75;
+      right: 22px;
+      top: 6px;
     }
     .close:before,
     .close:after {
       height: 40px;
       width: 4px;
+    }
+    .close:hover {
+      opacity: 1;
     }
   }
 </style>
