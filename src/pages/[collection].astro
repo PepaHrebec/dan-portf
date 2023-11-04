@@ -14,6 +14,7 @@ import Layout from "../layouts/Layout.astro";
 import Fullscreen from "../components/Fullscreen.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
+import MenuButton from "../components/MenuButton.astro";
 import { contentfulClient } from "../lib/contentful";
 import type { EntryFieldTypes } from "contentful";
 import CollectionBody from "../components/CollectionBody.astro";
@@ -69,6 +70,7 @@ const { title, photos } = Astro.props;
           })
       }
     </CollectionBody>
+    <MenuButton class="menu-btn" />
     <Footer />
   </main>
 </Layout>
@@ -79,9 +81,11 @@ const { title, photos } = Astro.props;
     height: 100%;
     object-fit: cover;
   }
+  main {
+    position: relative;
+  }
   @media screen and (min-width: 992px) {
     img {
-      /* width: 40%; */
       flex: 1;
     }
     .pic-cont {

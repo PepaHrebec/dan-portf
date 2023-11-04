@@ -7,7 +7,7 @@ const { title } = Astro.props;
   {
     Astro.url.pathname != "/" ? (
       <a href="/" title="Zpět na hlavní stránku">
-        {"Zpět"}
+        {"Menu"}
       </a>
     ) : null
   }
@@ -33,6 +33,12 @@ const { title } = Astro.props;
     padding-right: 5vw;
     font-size: 15px;
     color: black;
+    display: none;
+  }
+  @media screen and (min-width: 992px) {
+    a {
+      display: block;
+    }
   }
   @media screen and (min-width: 1600px) {
     header {
