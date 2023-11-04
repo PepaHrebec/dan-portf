@@ -13,6 +13,7 @@ import slugify from "slugify";
 import Layout from "../layouts/Layout.astro";
 import Fullscreen from "../components/Fullscreen.astro";
 import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
 import { contentfulClient } from "../lib/contentful";
 import type { EntryFieldTypes } from "contentful";
 import CollectionBody from "../components/CollectionBody.astro";
@@ -57,13 +58,18 @@ const { title, photos } = Astro.props;
                   width="1920"
                   height="1080"
                   loading={index === 0 ? "eager" : "lazy"}
-                  data-lastlong={index == photos.length - 1 ? "true" : "false"}
+                  data-lastlong={
+                    index == photos.length - 1 && photos.length % 2 == 1
+                      ? "true"
+                      : "false"
+                  }
                 />
               </div>
             );
           })
       }
     </CollectionBody>
+    <Footer />
   </main>
 </Layout>
 
@@ -81,6 +87,12 @@ const { title, photos } = Astro.props;
     .pic-cont {
       width: 40%;
       flex-grow: 1;
+      display: flex;
+      justify-content: center;
+    }
+    .last-img {
+      width: 60%;
+      flex-grow: 0;
     }
   }
 </style>
@@ -88,4 +100,5 @@ const { title, photos } = Astro.props;
 <script src="../script.ts"></script>
 <script>
   const last = document.querySelector(`[data-lastLong="true"]`);
+  last?.classList.add("last-img");
 </script>
